@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">project</string>
+    <string name="app_name">Carga de Dedicaciones</string>
+    <string name="input_user">username</string>
+    <string name="button_login">Login</string>
 </resources>
