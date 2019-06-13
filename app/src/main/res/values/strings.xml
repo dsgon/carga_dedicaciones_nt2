@@ -2,4 +2,10 @@
     <string name="app_name">Carga de Dedicaciones</string>
     <string name="input_user">username</string>
     <string name="button_login">Login</string>
+    <string name="title_activity_dedicacion_vew">dedicacion_vew</string>
+    <string name="title_projects">Dedicaciones a Proyectos</string>
+    <string name="title_table_column_project">Proyecto</string>
+    <string name="title_table_column_dedicacion">Dedicacion</string>
+    <string name="button_cargar_dedicacion">Cargar</string>
+    <string name="action_settings">Settings</string>
 </resources>
