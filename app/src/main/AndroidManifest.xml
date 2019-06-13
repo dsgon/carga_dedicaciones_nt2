@@ -5,12 +5,16 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:logo="@mipmap/logo_practia_color_original_small"
         android:label="@string/app_name"
+        android:logo="@mipmap/logo_practia_color_original_small"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".views.DedicacionActivity"
+            android:label="@string/title_activity_dedicacion_vew"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
