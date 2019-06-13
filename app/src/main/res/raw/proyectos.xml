@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<proyectos>
+    <proyecto>
+        <id>1</id>
+        <nombreProyecto>Nuevas Tecnologias 2</nombreProyecto>
+    </proyecto>
+    <proyecto>
+        <id>2</id>
+        <nombreProyecto>Taller Programacion 2</nombreProyecto>
+    </proyecto>
+    <proyecto>
+        <id>3</id>
+        <nombreProyecto>Programacion 2</nombreProyecto>
+    </proyecto>
+    <proyecto>
+        <id>4</id>
+        <nombreProyecto>Bases de Datos 2</nombreProyecto>
+    </proyecto>
+</proyectos>
