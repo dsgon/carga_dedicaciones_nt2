@@ -24,26 +24,23 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Se crea el Intent con DedicacionActivity como opcion por default
                 Intent intent = new Intent(getApplicationContext(), DedicacionActivity.class);
                 EditText user = findViewById(R.id.inputUser);
                 EditText pass = findViewById(R.id.inputPass);
                 colaborador = new Login().validateAccess(user.getText().toString(),pass.getText().toString(),
                         getResources().openRawResource(R.raw.colaboradores));
                 if (colaborador != null){
-                    /* Envia a la vista Dedicaciones
-                    intent.setClass(MainActivity.this,DedicacionActivity.class);*/
+                    /* Envia a la vista Dedicaciones */
                     intent.putExtra("fullName", colaborador.getFullName());
-                    intent.putExtra("cantProjects",colaborador.getIdProyectos().size());
+                    int c = colaborador.getIdProyectos().size();
+                    intent.putExtra("cantProjects", c);
                     for(int i=0; i<colaborador.getIdProyectos().size();i++){
                         intent.putExtra(String.format("project%s",i),colaborador.getIdProyectos().get(i));
                     }
                     startActivity(intent);
                 } else {
-                    /* Envia a page de error.
-                    Se setea la vista ErrorLogin para el manejo del error */
-                    intent.setClass(MainActivity.this,ErrorLogin.class);
-                    startActivity(intent);
+                    /*Muestra mensaje de Error */
+                    new ErrorLogin().show(getSupportFragmentManager(),"Error Login");
                 }
 
             }
