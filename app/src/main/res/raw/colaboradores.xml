@@ -2,7 +2,7 @@
 <colaboradores>
     <colaborador>
         <fullName>David Gonzalez</fullName>
-        <username>dgonzalez</username>
+        <userName>dgonzalez</userName>
         <pass>Ort.123</pass>
         <proyectos>
             <proyecto>1</proyecto>
@@ -11,7 +11,7 @@
     </colaborador>
     <colaborador>
         <fullName>Mariana Carballal</fullName>
-        <username>dsgonzalez</username>
+        <userName>mcarballal</userName>
         <pass>123.Ort</pass>
         <proyectos>
             <proyecto>3</proyecto>
@@ -20,7 +20,7 @@
     </colaborador>
     <colaborador>
         <fullName>Test User</fullName>
-        <username>tuser</username>
+        <userName>tuser</userName>
         <pass>1234567890</pass>
         <proyectos>
             <proyecto>1</proyecto>
