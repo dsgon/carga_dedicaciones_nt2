@@ -186,12 +186,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbarProyectos"
         app:layout_constraintVertical_bias="0.024" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/idListProjects">
 
-    </ListView>
 
     <TextView
         android:id="@+id/idProyecto"

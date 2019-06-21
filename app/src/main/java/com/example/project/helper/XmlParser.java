@@ -77,4 +77,31 @@ public class XmlParser {
 
     }
 
+    public Periodo getPeriodo(InputStream xml){
+        Periodo periodo = null;
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = dbf.newDocumentBuilder();
+            Document document = builder.parse(xml);
+            document.getDocumentElement().normalize();
+            //Obtiene una lista de todos los elementos XML llamados "perido"
+            NodeList periodoXml = document.getElementsByTagName("periodo");
+            // Deberia existir un unico perido para cargar
+            if (periodoXml.getLength() > 1) throw new Exception("InvalidPeriodo");
+
+            if(periodoXml.item(0).getNodeType() == Node.ELEMENT_NODE){
+                Element element = (Element) periodoXml.item(0);
+                String mes = element.getElementsByTagName("month").item(0).getTextContent();
+                int numero = Integer.parseInt(element.getElementsByTagName("number").item(0).getTextContent());
+                int year = Integer.parseInt(element.getElementsByTagName("year").item(0).getTextContent());
+                int hours = Integer.parseInt(element.getElementsByTagName("horasHabiles").item(0).getTextContent());
+                periodo =  new Periodo(mes,numero,year,hours);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return periodo;
+        }
+    }
+
 }
