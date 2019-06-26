@@ -54,7 +54,7 @@ public class DedicacionActivity extends AppCompatActivity {
     }
 
     private void showProjects(){
-        ArrayList<Proyecto> projects = new XmlParser().getProyectos(getResources().openRawResource(R.raw.proyectos));;
+        ArrayList<Proyecto> projects = new XmlParser().getProyectos(getResources().openRawResource(R.raw.proyectos));
 
         loadProjectsAndHoursElements();
 
