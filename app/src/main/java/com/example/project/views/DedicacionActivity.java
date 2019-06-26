@@ -42,9 +42,7 @@ public class DedicacionActivity extends AppCompatActivity {
         buttonCargar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText inputDedicacion = findViewById(R.id.inputHoras);
-                int horasCargadas = Integer.parseInt(inputDedicacion.getText().toString());
-                if (horasCargadas < periodo.getHoras()){
+                if (getHorasCargadas()< periodo.getHoras()){
                     new ErrorCarga().show(getSupportFragmentManager(),"Error en Carga");
                 }
 
@@ -87,6 +85,14 @@ public class DedicacionActivity extends AppCompatActivity {
         inputsHours.add((TextView) findViewById(R.id.inputHoras));
         inputsHours.add((TextView) findViewById(R.id.inputHoras2));
         inputsHours.add((TextView) findViewById(R.id.inputHoras3));
+    }
+
+    private int getHorasCargadas(){
+        int hours = 0;
+        for (TextView input : inputsHours) {
+            hours += Integer.parseInt(input.getText().toString());
+        }
+        return hours;
     }
 
 }

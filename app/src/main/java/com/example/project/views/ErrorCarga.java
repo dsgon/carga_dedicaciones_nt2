@@ -13,7 +13,7 @@ public class ErrorCarga extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder
                 .setTitle("Error")
-                .setMessage("La cantidad de horoas cargadas no puede ser menor a la cantidad total del periodo. Verifique")
+                .setMessage("La cantidad de horas cargadas no puede ser menor a la cantidad total del periodo. Verifique")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
