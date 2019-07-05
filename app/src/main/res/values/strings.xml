@@ -8,4 +8,6 @@
     <string name="title_table_column_dedicacion">Dedicacion</string>
     <string name="button_cargar_dedicacion">Cargar</string>
     <string name="action_settings">Settings</string>
+    <string name="message_succes">Su dedicacion para este periodo fue cargada de manera exitosa</string>
+    <string name="button_exit">Salir</string>
 </resources>
