@@ -1,5 +1,6 @@
 package com.example.project.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,10 +32,11 @@ public class DedicacionActivity extends AppCompatActivity {
         TextView textPeriodo = findViewById(R.id.infoYearMonth);
         TextView textHoras = findViewById(R.id.textHours);
         Button buttonCargar = findViewById(R.id.buttonCargar);
+        final String userFullName = bundle.getString("fullName");
 
         final Periodo periodo = new XmlParser().getPeriodo(getResources().openRawResource(R.raw.periodo));
 
-        fullName.setText(bundle.getString("fullName"));
+        fullName.setText(userFullName);
         textPeriodo.setText(String.format("%s/%d", periodo.getMes(), periodo.getYear()));
         textHoras.setText(String.format("%d",periodo.getHoras()));
         showProjects();
@@ -44,6 +46,9 @@ public class DedicacionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (getHorasCargadas()< periodo.getHoras()){
                     new ErrorCarga().show(getSupportFragmentManager(),"Error en Carga");
+                } else{
+                    Intent intent = new Intent(getApplicationContext(), CargaExitosaActivity.class);
+                    startActivity(intent);
                 }
 
             }
