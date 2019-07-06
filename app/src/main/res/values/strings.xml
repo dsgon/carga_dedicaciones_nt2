@@ -10,4 +10,7 @@
     <string name="action_settings">Settings</string>
     <string name="message_succes">Su dedicacion para este periodo fue cargada de manera exitosa</string>
     <string name="button_exit">Salir</string>
+    <string name="title_comments">Comentarios</string>
+    <string name="todo">TODO</string>
+    <string name="hint_comment">Agrega un comentario</string>
 </resources>
