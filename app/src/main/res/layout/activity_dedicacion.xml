@@ -43,7 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.016"
-        app:srcCompat="@drawable/logo_blanco_practia_sin_slogan" />
+        app:srcCompat="@drawable/logo_blanco_practia_sin_slogan"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/colaboradorFullName"
@@ -51,7 +52,7 @@
         android:layout_height="19dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="ColaboradorFullName"
+        android:text="@string/colaborador_template"
         android:textColor="@color/colorContrast"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
@@ -70,7 +71,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/logoPractia"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/user_icon" />
+        app:srcCompat="@drawable/user_icon"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/infoYearMonth"
@@ -80,7 +82,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Periodo 2019/05"
+        android:text="@string/periodo_template"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/toolbarProyectos"
@@ -97,7 +99,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
-        android:text="160 Horas"
+        android:text="@string/hours_template"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/toolbarProyectos"
@@ -187,7 +189,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Nuevas Tecnologias"
+        android:text="@string/project_name_template"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -207,12 +209,13 @@
         android:layout_marginBottom="16dp"
         android:ems="2"
         android:inputType="number"
-        android:text="0"
+        android:text="@string/default_value"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleCargaDedicacion"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:autofillHints="@string/default_value" />
 
     <TextView
         android:id="@+id/idProyecto2"
@@ -223,7 +226,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Programacion"
+        android:text="@string/project_name_template"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -242,12 +245,13 @@
         android:layout_marginBottom="24dp"
         android:ems="2"
         android:inputType="number"
-        android:text="0"
+        android:text="@string/default_value"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputHoras"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:autofillHints="@string/default_value"/>
 
     <TextView
         android:id="@+id/idProyecto3"
@@ -258,7 +262,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Taller Programacion"
+        android:text="@string/project_name_template"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -277,12 +281,13 @@
         android:layout_marginBottom="24dp"
         android:ems="2"
         android:inputType="number"
-        android:text="0"
+        android:text="@string/default_value"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputHoras2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:autofillHints="@string/default_value"/>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarComments"
@@ -332,12 +337,14 @@
         android:inputType="textMultiLine"
         android:maxLength="124"
         android:maxLines="4"
+        android:hint="@string/hint_comment"
         app:layout_constraintBottom_toTopOf="@+id/buttonCargar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarComments"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.083"
+        android:autofillHints="@string/hint_comment" />
 
     <Button
         android:id="@+id/buttonCargar"
