@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.project.R;
@@ -38,7 +37,7 @@ public class DedicacionActivity extends AppCompatActivity {
 
         fullName.setText(userFullName);
         textPeriodo.setText(String.format("%s/%d", periodo.getMes(), periodo.getYear()));
-        textHoras.setText(String.format("%d",periodo.getHoras()));
+        textHoras.setText(String.format("%d Horas",periodo.getHoras()));
         showProjects();
 
         buttonCargar.setOnClickListener(new View.OnClickListener() {

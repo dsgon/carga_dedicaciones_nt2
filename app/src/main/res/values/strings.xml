@@ -10,4 +10,14 @@
     <string name="action_settings">Settings</string>
     <string name="message_succes">Su dedicacion para este periodo fue cargada de manera exitosa</string>
     <string name="button_exit">Salir</string>
+    <string name="title_comments">Comentarios</string>
+    <string name="todo">TODO</string>
+    <string name="hint_comment">Agrega un comentario</string>
+    <string name="periodo_template">Perido MM/YYYY</string>
+    <string name="hours_template">XXX Horas</string>
+    <string name="colaborador_template">Full Name</string>
+    <string name="project_name_template">Project Name</string>
+    <string name="default_value">0</string>
+    <string name="todo">TODO</string>
+    <string name="todo">TODO</string>
 </resources>
