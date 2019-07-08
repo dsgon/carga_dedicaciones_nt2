@@ -18,4 +18,10 @@
     <string name="colaborador_template">Full Name</string>
     <string name="project_name_template">Project Name</string>
     <string name="default_value">0</string>
+    <string name="button_historic">Ver Historico</string>
+    <string name="title_horas_estimadas">Estimadas</string>
+    <string name="title_horas_cargadas">Cargadas</string>
+    <string name="title_periodo">Periodo</string>
+    <string name="title_horas">Horas</string>
+    <string name="title_historico_dedicaciones">Historico de Dedicaciones</string>
 </resources>
