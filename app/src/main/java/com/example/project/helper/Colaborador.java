@@ -4,31 +4,55 @@ import java.util.ArrayList;
 
 public class Colaborador {
 
-    private String fullName;
-    private String userName;
-    private String password;
-    private ArrayList idProject;
+    private static String fullName;
+    private static String userName;
+    private static String password;
+    private static ArrayList idProject;
+    private static Colaborador colaborador = null;
 
-    public Colaborador(String fullName, String userName, String pass, ArrayList<String> projects){
-        this.fullName = fullName;
-        this.userName = userName;
-        this.password = pass;
-        this.idProject = projects;
+    private Colaborador(){}
+
+    public static Colaborador getInstance(){
+        if(colaborador == null){
+            colaborador = new Colaborador();
+            return colaborador;
+        }
+        return colaborador;
     }
 
-    public String getUserName(){
-        return this.userName;
+    public static void setFullName(String fullName) {
+        Colaborador.fullName = fullName;
     }
 
-    public String getPassword(){
-        return this.password;
+    public static void setUserName(String userName) {
+        Colaborador.userName = userName;
     }
 
-    public String getFullName(){
-        return this.fullName;
+    public static void setPassword(String password) {
+        Colaborador.password = password;
     }
 
-    public ArrayList<String> getIdProyectos(){
-        return this.idProject;
+    public static ArrayList getIdProject() {
+        return idProject;
+    }
+
+    public static void setIdProject(ArrayList idProject) {
+        Colaborador.idProject = idProject;
+    }
+
+    public static String getUserName(){
+        return Colaborador.userName;
+    }
+
+    public static String getPassword(){
+        return Colaborador.password;
+    }
+
+    public static String getFullName(){
+        return Colaborador.fullName;
+    }
+
+    public static ArrayList<String> getIdProyectos(){
+        return Colaborador.idProject;
     }
 }
