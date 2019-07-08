@@ -6,17 +6,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.project.R;
+import com.example.project.helper.Colaborador;
+import com.example.project.helper.FileHandle;
 import com.example.project.helper.Periodo;
 import com.example.project.helper.Proyecto;
 import com.example.project.helper.XmlParser;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DedicacionActivity extends AppCompatActivity {
 
-    private Bundle bundle;
+    private FileOutputStream fileOutputStream;
 
     private ArrayList<TextView> projectsNames = new ArrayList<>();
     private ArrayList<TextView> inputsHours = new ArrayList<>();
@@ -25,45 +31,42 @@ public class DedicacionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bundle = getIntent().getExtras();
         setContentView(R.layout.activity_dedicacion);
         TextView fullName = findViewById(R.id.colaboradorFullName);
         TextView textPeriodo = findViewById(R.id.infoYearMonth);
         TextView textHoras = findViewById(R.id.textHours);
         Button buttonCargar = findViewById(R.id.buttonCargar);
-        final String userFullName = bundle.getString("fullName");
 
-        final Periodo periodo = new XmlParser().getPeriodo(getResources().openRawResource(R.raw.periodo));
-
-        fullName.setText(userFullName);
-        textPeriodo.setText(String.format("%s/%d", periodo.getMes(), periodo.getYear()));
-        textHoras.setText(String.format("%d Horas",periodo.getHoras()));
+        fullName.setText(Colaborador.getInstance().getFullName());
+        textPeriodo.setText(String.format("%s/%d",
+                Periodo.getInstance().getMes(),
+                Periodo.getInstance().getYear()));
+        textHoras.setText(String.format("%d Horas",Periodo.getInstance().getHoras()));
         showProjects();
 
         buttonCargar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getHorasCargadas()< periodo.getHoras()){
+                int horasCargadas = getHorasCargadas();
+                if (horasCargadas< Periodo.getInstance().getHoras()){
                     new ErrorCarga().show(getSupportFragmentManager(),"Error en Carga");
                 } else{
                     Intent intent = new Intent(getApplicationContext(), CargaExitosaActivity.class);
+                    writeFile(horasCargadas);
                     startActivity(intent);
                 }
-
             }
         });
 
     }
 
     private void showProjects(){
-        ArrayList<Proyecto> projects = new XmlParser().getProyectos(getResources().openRawResource(R.raw.proyectos));
+        ArrayList<Proyecto> projects = XmlParser.getProyectos(getResources().openRawResource(R.raw.proyectos));
 
         loadProjectsAndHoursElements();
 
-        int userProjectsSize = bundle.getInt("cantProjects");
-
-        for (int i=0; i<userProjectsSize;i++){
-            String userIdProject = bundle.getString(String.format("project%s",i));
+        for (int i=0; i<Colaborador.getInstance().getIdProyectos().size();i++){
+            String userIdProject = Colaborador.getInstance().getIdProyectos().get(i);
             Proyecto project = null;
             int j=0;
             while (j<projects.size()){
@@ -97,6 +100,27 @@ public class DedicacionActivity extends AppCompatActivity {
             hours += Integer.parseInt(input.getText().toString());
         }
         return hours;
+    }
+
+    public void writeFile(int horasCargadas){
+        String stringDedicacion = String.format("%s%s,%s,%s",
+                Periodo.getInstance().getYear(),
+                Periodo.getInstance().getMes(),
+                Periodo.getInstance().getHoras(),
+                horasCargadas);
+        String fileName = String.format("%s%s",
+                Colaborador.getUserName(),
+                FileHandle.getFileExtension());
+        try {
+            fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
+            fileOutputStream.write(stringDedicacion.getBytes());
+            Toast.makeText(this, String.format("Saved to %s/%s",getFilesDir(),fileName),
+                    Toast.LENGTH_LONG).show();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }

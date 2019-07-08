@@ -13,7 +13,7 @@ import org.w3c.dom.Document;
 
 public class XmlParser {
 
-    public ArrayList<Colaborador> getColaboradores(InputStream xml){
+    public static void createColaborador(InputStream xml, String user){
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbf.newDocumentBuilder();
@@ -21,7 +21,6 @@ public class XmlParser {
             document.getDocumentElement().normalize();
             //Obtiene una lista de todos los elementos XML llamados "colaborador"
             NodeList colaboradores = document.getElementsByTagName("colaborador");
-            ArrayList<Colaborador> listColaboradores = new ArrayList<Colaborador>();
 
             for (int i = 0; i < colaboradores.getLength(); i++) {
                 Node colaborador = colaboradores.item(i);
@@ -36,19 +35,23 @@ public class XmlParser {
                     for (int j=0; j< element.getElementsByTagName("proyecto").getLength(); j++){
                         projects.add(element.getElementsByTagName("proyecto").item(j).getTextContent());
                     }
-                    listColaboradores.add(new Colaborador(fullName,userName, password, projects));
-
+                    if(user.equals(userName)){
+                        Colaborador instanceColaborador = Colaborador.getInstance();
+                        instanceColaborador.setUserName(userName);
+                        instanceColaborador.setFullName(fullName);
+                        instanceColaborador.setPassword(password);
+                        instanceColaborador.setIdProject(projects);
+                        break;
+                    }
                 }
             }
-            return listColaboradores;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
 
     }
 
-    public ArrayList<Proyecto> getProyectos(InputStream xml){
+    public static ArrayList<Proyecto> getProyectos(InputStream xml){
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbf.newDocumentBuilder();
@@ -77,8 +80,7 @@ public class XmlParser {
 
     }
 
-    public Periodo getPeriodo(InputStream xml){
-        Periodo periodo = null;
+    public static void crearPeriodo(InputStream xml){
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbf.newDocumentBuilder();
@@ -95,12 +97,14 @@ public class XmlParser {
                 int numero = Integer.parseInt(element.getElementsByTagName("number").item(0).getTextContent());
                 int year = Integer.parseInt(element.getElementsByTagName("year").item(0).getTextContent());
                 int hours = Integer.parseInt(element.getElementsByTagName("horasHabiles").item(0).getTextContent());
-                periodo =  new Periodo(mes,numero,year,hours);
+                Periodo periodo = Periodo.getInstance();
+                periodo.setMes(mes);
+                periodo.setNumero(numero);
+                periodo.setYear(year);
+                periodo.setHoras(hours);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            return periodo;
         }
     }
 

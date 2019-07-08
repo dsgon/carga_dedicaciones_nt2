@@ -2,15 +2,35 @@ package com.example.project.helper;
 
 public class Periodo {
 
-    private String mes;
-    private int numero;
-    private int year;
-    private int horas;
+    private static String mes;
+    private static int numero;
+    private static int year;
+    private static int horas;
+    private static Periodo periodo = null;
 
-    public Periodo(String mes, int numero, int year, int horas){
+    private Periodo(){}
+
+    public static Periodo getInstance(){
+        if (periodo == null){
+            periodo = new Periodo();
+            return periodo;
+        }
+        return periodo;
+    }
+
+    public void setMes(String mes) {
         this.mes = mes;
+    }
+
+    public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public void setYear(int year) {
         this.year = year;
+    }
+
+    public void setHoras(int horas) {
         this.horas = horas;
     }
 
