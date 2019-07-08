@@ -10,10 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.CargaExitosaActivity"></activity>
+        <activity android:name=".views.HistoricActivity"
+            android:label="@string/title_historico_dedicaciones">
+        </activity>
+        <activity android:name=".views.CargaExitosaActivity" />
         <activity
             android:name=".views.DedicacionActivity"
-            android:label="@string/title_activity_dedicacion_vew"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".views.MainActivity">
             <intent-filter>
