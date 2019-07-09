@@ -32,8 +32,12 @@ public class XmlParser {
                     String userName = element.getElementsByTagName("userName").item(0).getTextContent();
                     String password = element.getElementsByTagName("pass").item(0).getTextContent();
                     ArrayList<String> projects = new ArrayList<>();
+                    ArrayList<String> dedicaciones = new ArrayList<>();
                     for (int j=0; j< element.getElementsByTagName("proyecto").getLength(); j++){
                         projects.add(element.getElementsByTagName("proyecto").item(j).getTextContent());
+                    }
+                    for (int j=0; j< element.getElementsByTagName("dedicacion").getLength(); j++){
+                        dedicaciones.add(element.getElementsByTagName("dedicacion").item(j).getTextContent());
                     }
                     if(user.equals(userName)){
                         Colaborador instanceColaborador = Colaborador.getInstance();
@@ -41,6 +45,7 @@ public class XmlParser {
                         instanceColaborador.setFullName(fullName);
                         instanceColaborador.setPassword(password);
                         instanceColaborador.setIdProject(projects);
+                        instanceColaborador.setDedicacionesHistoricas(dedicaciones);
                         break;
                     }
                 }

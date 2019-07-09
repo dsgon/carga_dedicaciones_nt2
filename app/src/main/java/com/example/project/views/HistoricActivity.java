@@ -19,7 +19,9 @@ public class HistoricActivity extends AppCompatActivity {
 
     private ListView listView;
     private FileInputStream fileInputStream;
-    String[][] dedicaciones = new String[6][3];
+    String[][] dedicaciones;
+    private final int MAX_ROWS = 6;
+    private final int MAX_COLUMNS = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,10 @@ public class HistoricActivity extends AppCompatActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line;
             int i=0;
-            while(((line = bufferedReader.readLine()) != null )&& i<6){
+            int max = Colaborador.getDedicacionesHistoricas().size() + 1;
+            if (max >= MAX_ROWS ) max = MAX_ROWS;
+            dedicaciones = new String[max][MAX_COLUMNS];
+            while(((line = bufferedReader.readLine()) != null )&& i<max){
                 String[] row = line.split(",");
                 dedicaciones[i] = row;
                 i++;

@@ -8,6 +8,7 @@ public class Colaborador {
     private static String userName;
     private static String password;
     private static ArrayList idProject;
+    private static ArrayList dedicacionesHistoricas;
     private static Colaborador colaborador = null;
 
     private Colaborador(){}
@@ -32,12 +33,14 @@ public class Colaborador {
         Colaborador.password = password;
     }
 
-    public static ArrayList getIdProject() {
-        return idProject;
-    }
-
     public static void setIdProject(ArrayList idProject) {
         Colaborador.idProject = idProject;
+    }
+
+    public static void setDedicacionesHistoricas(ArrayList dedicaciones){ Colaborador.dedicacionesHistoricas = dedicaciones;}
+
+    public static ArrayList getIdProject() {
+        return idProject;
     }
 
     public static String getUserName(){
@@ -55,4 +58,6 @@ public class Colaborador {
     public static ArrayList<String> getIdProyectos(){
         return Colaborador.idProject;
     }
+
+    public static ArrayList<String> getDedicacionesHistoricas() { return  Colaborador.dedicacionesHistoricas;}
 }
