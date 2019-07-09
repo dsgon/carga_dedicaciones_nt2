@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             while((line = bufferedReader.readLine()) != null){
                 stringBuilder.append(line).append("\n");
                 System.out.println(line);
-                if(line.startsWith(String.format("%s%s",
+                if(line.startsWith(String.format("%s %s",
                         Periodo.getInstance().getYear(),
                         Periodo.getInstance().getMes()))){
                     return true;

@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.project.R;
 import com.example.project.helper.Colaborador;
 import com.example.project.helper.FileHandle;
+import com.example.project.helper.Loader;
 import com.example.project.helper.Periodo;
 import com.example.project.helper.Proyecto;
 import com.example.project.helper.XmlParser;
@@ -26,6 +26,10 @@ public class DedicacionActivity extends AppCompatActivity {
 
     private ArrayList<TextView> projectsNames = new ArrayList<>();
     private ArrayList<TextView> inputsHours = new ArrayList<>();
+
+    private String fileName = String.format("%s%s",
+            Colaborador.getUserName(),
+            FileHandle.getFileExtension());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +56,8 @@ public class DedicacionActivity extends AppCompatActivity {
                     new ErrorCarga().show(getSupportFragmentManager(),"Error en Carga");
                 } else{
                     Intent intent = new Intent(getApplicationContext(), CargaExitosaActivity.class);
-                    writeFile(horasCargadas);
+                    saveDedicacion(horasCargadas);
+                    cargarHistorico();
                     startActivity(intent);
                 }
             }
@@ -102,20 +107,26 @@ public class DedicacionActivity extends AppCompatActivity {
         return hours;
     }
 
-    public void writeFile(int horasCargadas){
-        String stringDedicacion = String.format("%s%s,%s,%s",
+    public void saveDedicacion(int horasCargadas){
+        String stringDedicacion = String.format("%s %s,%s,%s",
                 Periodo.getInstance().getYear(),
                 Periodo.getInstance().getMes(),
                 Periodo.getInstance().getHoras(),
                 horasCargadas);
-        String fileName = String.format("%s%s",
-                Colaborador.getUserName(),
-                FileHandle.getFileExtension());
+        writeFile(stringDedicacion+"\n");
+    }
+
+    private void cargarHistorico(){
+        String[] dedicacionesHistoricas = new Loader().getDedicacionesHistoricas();
+        for(int i=0; i<dedicacionesHistoricas.length;i++){
+            writeFile(dedicacionesHistoricas[i]+"\n");
+        }
+    }
+
+    private void writeFile(String dedicacion){
         try {
-            fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
-            fileOutputStream.write(stringDedicacion.getBytes());
-            Toast.makeText(this, String.format("Saved to %s/%s",getFilesDir(),fileName),
-                    Toast.LENGTH_LONG).show();
+            fileOutputStream = openFileOutput(fileName, MODE_APPEND);
+            fileOutputStream.write(dedicacion.getBytes());
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e){
