@@ -8,11 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.project.R;
-import com.example.project.helper.Colaborador;
+import com.example.project.core.Colaborador;
+import com.example.project.core.Periodo;
 import com.example.project.helper.FileHandle;
-import com.example.project.helper.Periodo;
 import com.example.project.helper.XmlParser;
-import com.example.project.login.Login;
+import com.example.project.helper.Login;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

@@ -45,10 +45,16 @@ public class Adaptador extends BaseAdapter {
         TextView periodo = (TextView) view.findViewById(R.id.periodo);
         TextView horasCarcagas = (TextView) view.findViewById(R.id.horasCargadas);
         TextView horasEstimadas = (TextView) view.findViewById(R.id.horasEstimadas);
+        TextView comments = (TextView) view.findViewById(R.id.comment);
 
         periodo.setText(data[position][0]);
         horasCarcagas.setText(data[position][1]);
         horasEstimadas.setText(data[position][2]);
+        if(data[position].length==4){
+            comments.setText(data[position][3]);
+        } else{
+            comments.setText("");
+        }
 
         return view;
     }

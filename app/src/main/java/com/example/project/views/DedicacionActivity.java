@@ -9,10 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.project.R;
-import com.example.project.helper.Colaborador;
+import com.example.project.core.Colaborador;
+import com.example.project.core.Periodo;
+import com.example.project.core.Proyecto;
 import com.example.project.helper.FileHandle;
-import com.example.project.helper.Periodo;
-import com.example.project.helper.Proyecto;
 import com.example.project.helper.XmlParser;
 
 import java.io.FileNotFoundException;
@@ -109,7 +109,7 @@ public class DedicacionActivity extends AppCompatActivity {
     }
 
     public void saveDedicacion(int horasCargadas, String comments){
-        String stringDedicacion = String.format("%s %s,%s,%s,%s",
+        String stringDedicacion = String.format("%s %s|%s|%s|%s",
                 Periodo.getInstance().getYear(),
                 Periodo.getInstance().getMes(),
                 Periodo.getInstance().getHoras(),
