@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import com.example.project.R;
 import com.example.project.helper.Adaptador;
-import com.example.project.helper.Colaborador;
+import com.example.project.core.Colaborador;
 import com.example.project.helper.FileHandle;
 
 import java.io.BufferedReader;
