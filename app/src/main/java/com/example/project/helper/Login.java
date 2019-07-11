@@ -8,8 +8,12 @@ public class Login {
 
     public boolean validateAccess(String user, String pass, InputStream xml){
         XmlParser.createColaborador(xml, user);
-        if(Colaborador.getInstance()!= null && Colaborador.getInstance().getPassword().equals(pass))
+        try {
+            if (Colaborador.getInstance() != null && Colaborador.getInstance().getPassword().equals(pass)) {
                 return true;
+            }
+        } catch (Exception e){
+        }
         return false;
     }
 }
