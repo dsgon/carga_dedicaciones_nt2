@@ -109,7 +109,7 @@ public class DedicacionActivity extends AppCompatActivity {
     }
 
     public void saveDedicacion(int horasCargadas, String comments){
-        String stringDedicacion = String.format("%s %s,%s,%s,%s",
+        String stringDedicacion = String.format("%s %s|%s|%s|%s",
                 Periodo.getInstance().getYear(),
                 Periodo.getInstance().getMes(),
                 Periodo.getInstance().getHoras(),
