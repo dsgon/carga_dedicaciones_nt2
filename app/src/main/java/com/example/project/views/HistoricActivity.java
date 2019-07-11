@@ -14,14 +14,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Pattern;
 
 public class HistoricActivity extends AppCompatActivity {
 
     private ListView listView;
     private FileInputStream fileInputStream;
     String[][] dedicaciones;
-    private final int MAX_ROWS = 6;
-    private final int MAX_COLUMNS = 3;
+    private final int MAX_ROWS = 3;
+    private final int MAX_COLUMNS = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class HistoricActivity extends AppCompatActivity {
             if (max >= MAX_ROWS ) max = MAX_ROWS;
             dedicaciones = new String[max][MAX_COLUMNS];
             while(((line = bufferedReader.readLine()) != null )&& i<max){
-                String[] row = line.split(",");
+                String[] row = line.split(Pattern.quote("|"));
                 dedicaciones[i] = row;
                 i++;
             }

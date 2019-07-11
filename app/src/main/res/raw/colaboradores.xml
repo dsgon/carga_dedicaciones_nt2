@@ -3,34 +3,31 @@
     <colaborador>
         <fullName>David Gonzalez</fullName>
         <userName>dgonzalez</userName>
-        <pass>Ort.123</pass>
+        <pass>dg1234</pass>
         <proyectos>
             <proyecto>1</proyecto>
             <proyecto>2</proyecto>
             <proyecto>4</proyecto>
         </proyectos>
         <dedicaciones>
-            <dedicacion>2019 Junio,164,160</dedicacion>
-            <dedicacion>2019 Mayo,152,152</dedicacion>
-            <dedicacion>2019 Abril,160,160</dedicacion>
-            <dedicacion>2019 Marzo,172,168</dedicacion>
-            <dedicacion>2019 Febrero,160,160</dedicacion>
-            <dedicacion>2019 Enero,160,160</dedicacion>
+            <dedicacion>2019 Junio|164|160|Hice horas extras.Hice horas extras.Hice horas extras.Hice horas extras.Hice horas extras</dedicacion>
+            <dedicacion>2019 Mayo|152|152</dedicacion>
+            <dedicacion>2019 Abril|168|160|Hice horas extras.Hice horas extras.Hice horas extras.Hice horas extras.Hice horas extras.</dedicacion>
+            <dedicacion>2019 Marzo|168|168</dedicacion>
         </dedicaciones>
     </colaborador>
     <colaborador>
         <fullName>Mariana Carballal</fullName>
         <userName>mcarballal</userName>
-        <pass>123.Ort</pass>
+        <pass>mc1234</pass>
         <proyectos>
             <proyecto>3</proyecto>
             <proyecto>4</proyecto>
         </proyectos>
         <dedicaciones>
-            <dedicacion>2019 Junio,160,160</dedicacion>
-            <dedicacion>2019 Mayo,160,152</dedicacion>
-            <dedicacion>2019 Abril,160,160</dedicacion>
-            <dedicacion>2019 Marzo,168,168</dedicacion>
+            <dedicacion>2019 Junio|160|160|sin novedades</dedicacion>
+            <dedicacion>2019 Mayo|160|152|Agrego horas extras</dedicacion>
+            <dedicacion>2019 Abril|160|160|</dedicacion>
         </dedicaciones>
     </colaborador>
     <colaborador>
@@ -41,8 +38,8 @@
             <proyecto>1</proyecto>
         </proyectos>
         <dedicaciones>
-            <dedicacion>2019 Junio,160,160</dedicacion>
-            <dedicacion>2019 Mayo,152,152</dedicacion>
+            <dedicacion>2019 Junio|160|160|</dedicacion>
+            <dedicacion>2019 Mayo|152|152|primera dedicacion cargada</dedicacion>
         </dedicaciones>
     </colaborador>
 </colaboradores>
