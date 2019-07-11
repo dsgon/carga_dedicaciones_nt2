@@ -1,5 +1,9 @@
 package com.example.project.helper;
 
+import com.example.project.core.Colaborador;
+import com.example.project.core.Periodo;
+import com.example.project.core.Proyecto;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 

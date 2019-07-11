@@ -1,7 +1,6 @@
-package com.example.project.login;
+package com.example.project.helper;
 
-import com.example.project.helper.Colaborador;
-import com.example.project.helper.XmlParser;
+import com.example.project.core.Colaborador;
 
 import java.io.InputStream;
 
